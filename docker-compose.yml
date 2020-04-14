@@ -2,7 +2,7 @@ version: '3.5'
 services:
 
   akaunting:
-    image: <your_image_tag_here>
+    build: .
     ports:
       - 8002:80
       - 8003:443
