@@ -10,16 +10,13 @@ The image building process downloads the latest release of Akaunting and install
 
 ## Without SSL
 If you don't need SSL all you need to do is configure the root akaunting.config apache virtualhost file in this repo with your domain and email address. Then run
-> sudo docker build -t <your_image_tag_here> .
+```sh
+sudo docker-compose up -d
+```
 
 from repo root directory.
-Then just
-> sudo docker run -p 80:80 <your_image_tag_here> <give_a_name_to_your_container>
 
-Congrats! Thats it. If you want to persist data and restart on failure just add your image tag to the docker-compose.yml file and 
-> sudo docker-compose up -d
-
-from repo root directory. docker-compose is setup to listen on 8002 for http and 8003 for https.
+Congrats! Thats it. docker-compose is setup to listen on 8002 for http and 8003 for https.
 
 ## With SSL
 Now it gets ugly. But be patient and these instructions should get you squared away. We are going to use apache ProxyPass to setup a proxy on the host, but first we will use letsencrypt on the host. 
